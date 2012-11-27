@@ -1071,6 +1071,7 @@ typedef struct
 
 typedef xXIBarrierNotifyEvent xXIBarrierHitNotifyEvent;
 typedef xXIBarrierNotifyEvent xXIBarrierPointerReleasedNotifyEvent;
+typedef xXIBarrierNotifyEvent xXIBarrierLeaveNotifyEvent;
 
 #undef Window
 #undef Time
