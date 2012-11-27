@@ -822,7 +822,7 @@ typedef struct {
     uint8_t     ReqType;                /**< Always X_XIBarrierReleasePointer */
     uint16_t    length;
     uint32_t    num_barriers;
-    /* array of BARRIER, BarrierEventID */
+    /* array of BARRIER, BarrierEventID, DeviceID */
 } xXIBarrierReleasePointerReq;
 #define sz_xXIBarrierReleasePointerReq       8
 
