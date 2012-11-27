@@ -1053,7 +1053,8 @@ typedef struct
     uint16_t    sequenceNumber;         /**< Always 0 */
     uint32_t    length;                 /**< Always 9 */
     uint16_t    evtype;                 /**< ::XI_BarrierHitNotify or
-                                         **< ::XI_BarrierPointerReleasedNotify */
+                                         **< ::XI_BarrierPointerReleasedNotify or
+                                         **< ::XI_BarrierNewEventNotify */
     Window      window;
     uint16_t    deviceid;
     Time        time;
