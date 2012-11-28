@@ -1052,9 +1052,9 @@ typedef struct
     uint8_t     extension;              /**< XI extension offset */
     uint16_t    sequenceNumber;         /**< Always 0 */
     uint32_t    length;                 /**< Always 9 */
-    uint16_t    evtype;                 /**< ::XI_BarrierHitNotify or
-                                         **< ::XI_BarrierPointerReleasedNotify or
-                                         **< ::XI_BarrierNewEventNotify */
+    uint16_t    evtype;                 /**< ::XI_BarrierHit or
+                                         **< ::XI_BarrierPointerReleased or
+                                         **< ::XI_BarrierNewEvent */
     Window      window;
     uint16_t    deviceid;
     Time        time;
@@ -1065,11 +1065,11 @@ typedef struct
     int16_t     dt;
     uint16_t    event_id;
     Barrier     barrier;
-} xXIBarrierNotifyEvent;
+} xXIBarrierEvent;
 
-typedef xXIBarrierNotifyEvent xXIBarrierHitNotifyEvent;
-typedef xXIBarrierNotifyEvent xXIBarrierPointerReleasedNotifyEvent;
-typedef xXIBarrierNotifyEvent xXIBarrierLeaveNotifyEvent;
+typedef xXIBarrierEvent xXIBarrierHitEvent;
+typedef xXIBarrierEvent xXIBarrierPointerReleasedEvent;
+typedef xXIBarrierEvent xXIBarrierLeaveEvent;
 
 #undef Window
 #undef Time

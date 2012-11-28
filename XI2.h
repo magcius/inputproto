@@ -199,10 +199,10 @@
 #define XI_RawTouchBegin                 22
 #define XI_RawTouchUpdate                23
 #define XI_RawTouchEnd                   24
-#define XI_BarrierHitNotify              25 /* XI 2.3 */
-#define XI_BarrierPointerReleasedNotify  26
-#define XI_BarrierLeaveNotify            27
-#define XI_LASTEVENT                     XI_BarrierLeaveNotify
+#define XI_BarrierHit                    25 /* XI 2.3 */
+#define XI_BarrierPointerReleased        26
+#define XI_BarrierLeave                  27
+#define XI_LASTEVENT                     XI_BarrierLeave
 /* NOTE: XI2LASTEVENT in xserver/include/inputstr.h must be the same value
  * as XI_LASTEVENT if the server is supposed to handle masks etc. for this
  * type of event. */
@@ -235,8 +235,8 @@
 #define XI_RawTouchBeginMask             (1 << XI_RawTouchBegin)
 #define XI_RawTouchEndMask               (1 << XI_RawTouchEnd)
 #define XI_RawTouchUpdateMask            (1 << XI_RawTouchUpdate)
-#define XI_BarrierHitNotifyMask          (1 << XI_BarrierHitNotify)
-#define XI_BarrierPointerReleasedNotifyMask (1 << XI_BarrierPointerReleasedNotify)
-#define XI_BarrierLeaveNotifyMask        (1 << XI_BarrierLeaveNotify)
+#define XI_BarrierHitMask                (1 << XI_BarrierHit)
+#define XI_BarrierPointerReleasedMask    (1 << XI_BarrierPointerReleased)
+#define XI_BarrierLeaveMask              (1 << XI_BarrierLeave)
 
 #endif /* _XI2_H_ */
