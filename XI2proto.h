@@ -1058,6 +1058,7 @@ typedef struct
     Window      root;
     Window      window;
     uint16_t    deviceid;
+    uint16_t    sourceid;
     Time        time;
     int16_t     root_x;
     int16_t     root_y;
