@@ -1059,8 +1059,8 @@ typedef struct
     Window      window;
     uint16_t    deviceid;
     Time        time;
-    int16_t     x;
-    int16_t     y;
+    int16_t     root_x;
+    int16_t     root_y;
     FP3232      dx;
     FP3232      dy;
     FP3232      raw_dx;
