@@ -572,6 +572,12 @@ leaving the barrier, or being released by a client request, is the last
 event with this event ID. Any future movements of this device blocked by
 this barrier will be assigned a new event ID.
 
+Pointer barrier events are delivered exclusively to the window specified in
+the CreatePointerBarrier request. A pointer barrier blocks pointer movement
+regardless of wether the window is mapped and/or viewable. If the window
+used to create the pointer barrier is destroyed, the pointer barrier remains
+blocking but a client will not receive further events.
+
 
 [[glossary-notations]]
 Notations used in this document
