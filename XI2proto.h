@@ -1055,19 +1055,21 @@ typedef struct
     uint16_t    evtype;                 /**< ::XI_BarrierHit or
                                          **< ::XI_BarrierPointerReleased or
                                          **< ::XI_BarrierNewEvent */
+    uint16_t    deviceid;
+    Time        time;
+    uint16_t    event_id;
+    uint16_t    sourceid;
     Window      root;
     Window      window;
-    uint16_t    deviceid;
-    uint16_t    sourceid;
-    Time        time;
-    int16_t     root_x;
-    int16_t     root_y;
+    FP1616      root_x;
+/* └──────── 32 byte boundary ────────┘ */
+    FP1616      root_y;
     FP3232      dx;
     FP3232      dy;
     FP3232      raw_dx;
     FP3232      raw_dy;
     int16_t     dt;
-    uint16_t    event_id;
+    int16_t     pad;
     Barrier     barrier;
 } xXIBarrierEvent;
 
