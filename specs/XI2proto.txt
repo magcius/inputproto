@@ -2560,6 +2560,8 @@ in response to a XIBarrierReleasePointer request.
     barrier
         The barrier blocking pointer movement.
 
+Root coordinates in pointer barrier events represent the position of the
+cursor after confinement by barriers, screens and RandR output dimensions.
 
 :numbered!:
 [[xi22-usecases]]
