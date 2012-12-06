@@ -578,6 +578,29 @@ regardless of wether the window is mapped and/or viewable. If the window
 used to create the pointer barrier is destroyed, the pointer barrier remains
 blocking but a client will not receive further events.
 
+If a device is actively grabbed by a client or a passive grab activated
+for this client, and the pointer moves against a pointer barrier, that
+client will receive pointer barrier events if
+- owner_events is true or false and the grab's event mask includes
+  PointerBarrier events, or
+- owner_events is true and the window's event mask includes PointerBarrier
+  events
+
+If a device is actively grabbed by a client A, or a passive grab activated
+for client A, a pointer barrier was created by client B and the pointer
+moves against that barrier.
+Client A receives an event if
+- owner_events is true or false and the grab's event mask includes
+  PointerBarrier events, or
+- owner_events is true and the window's event mask includes PointerBarrier
+  events
+
+The event window of the pointer barrier event is always the window specified
+in the CreatePointerBarrier request, not the grab_window.
+
+Client B receives an event if
+- the client has pointer barrier events selected on the window associated
+  with the pointer barrier
 
 [[glossary-notations]]
 Notations used in this document
