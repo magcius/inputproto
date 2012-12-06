@@ -2546,17 +2546,19 @@ BarrierEvent
             dy:                         FP3232
             raw_dx:                     FP3232
             raw_dy:                     FP3232
-            dtime:                      CARD16
+            dtime:                      CARD32
+            flags:                      SETofBARRIERFLAGS
             sourceid:                   DEVICEID
             barrier:                    Barrier
     └───
 
+    BARRIERFLAGS { PointerReleased }
+
 A BarrierEvent indicates interaction between a barrier and a pointer device.
 If the event type is BarrierHit, the pointer has been blocked by a
 barrier. If the event type is BarrierLeave, a pointer previously blocked
-by a barrier has moved away from that barrier. If the event type is
-BarrierPointerReleased, the pointer has moved through the blocking barrier
-in response to a XIBarrierReleasePointer request.
+by a barrier has moved away from that barrier, or has moved
+through the blocking barrier in response to a XIBarrierReleasePointer request.
 
     event_id
        The unique event ID for this barrier event sequence.
@@ -2578,6 +2580,11 @@ in response to a XIBarrierReleasePointer request.
     dtime
         The relative time in milliseconds between the last event and this
         event.
+    flags
+        A set of flaqgs that apply to this barrier event
+        PointerReleased:
+           The pointer has moved through the barrier after a preceeding
+           XIBarrierReleasePointer request
     sourceid
         The source device that originally generated the event.
     barrier

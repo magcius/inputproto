@@ -1052,9 +1052,7 @@ typedef struct
     uint8_t     extension;              /**< XI extension offset */
     uint16_t    sequenceNumber;         /**< Always 0 */
     uint32_t    length;                 /**< Always 9 */
-    uint16_t    evtype;                 /**< ::XI_BarrierHit or
-                                         **< ::XI_BarrierPointerReleased or
-                                         **< ::XI_BarrierNewEvent */
+    uint16_t    evtype;                 /**< ::XI_BarrierHit or ::XI_BarrierLeave */
     uint16_t    deviceid;
     Time        time;
     uint16_t    event_id;
@@ -1068,8 +1066,8 @@ typedef struct
     FP3232      dy;
     FP3232      raw_dx;
     FP3232      raw_dy;
-    int16_t     dt;
-    int16_t     pad;
+    int32_t     dt;
+    uint32_t    flags;                  /**< ::XIBarrierPointerReleased */
     Barrier     barrier;
 } xXIBarrierEvent;
 
