@@ -602,6 +602,10 @@ Client B receives an event if
 - the client has pointer barrier events selected on the window associated
   with the pointer barrier
 
+The BarrierDeviceIsGrabbed flag is set whenever a pointer barrier event is
+generated while the device is actively grabbed by any client or a passive
+grab activated for this device.
+
 [[glossary-notations]]
 Notations used in this document
 -------------------------------
@@ -2585,6 +2589,9 @@ through the blocking barrier in response to a XIBarrierReleasePointer request.
         PointerReleased:
            The pointer has moved through the barrier after a preceeding
            XIBarrierReleasePointer request
+        DeviceIsGrabbed:
+           The pointer device that generated this event is currently
+           grabbed.
     sourceid
         The source device that originally generated the event.
     barrier

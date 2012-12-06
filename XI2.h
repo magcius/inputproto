@@ -162,6 +162,7 @@
 
 /* Barrier event flags */
 #define XIBarrierPointerReleased                (1 << 0)
+#define XIBarrierDeviceIsGrabbed                (1 << 1)
 
 
 /* Touch modes */
