@@ -2556,7 +2556,7 @@ BarrierEvent
             barrier:                    Barrier
     └───
 
-    BARRIERFLAGS { PointerReleased }
+    BARRIERFLAGS { PointerReleased, DeviceIsGrabbed }
 
 A BarrierEvent indicates interaction between a barrier and a pointer device.
 If the event type is BarrierHit, the pointer has been blocked by a
