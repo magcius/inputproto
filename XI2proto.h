@@ -67,6 +67,7 @@
 #define Time    uint32_t
 #define Atom    uint32_t
 #define Cursor  uint32_t
+#define Barrier uint32_t
 
 /**
  * XI2 Request opcodes
@@ -92,9 +93,10 @@
 #define X_XIDeleteProperty              58
 #define X_XIGetProperty                 59
 #define X_XIGetSelectedEvents           60
+#define X_XIBarrierReleasePointer       61
 
 /** Number of XI requests */
-#define XI2REQUESTS (X_XIGetSelectedEvents - X_XIQueryPointer + 1)
+#define XI2REQUESTS (X_XIBarrierReleasePointer - X_XIQueryPointer + 1)
 /** Number of XI2 events */
 #define XI2EVENTS   (XI_LASTEVENT + 1)
 
@@ -815,6 +817,15 @@ typedef struct {
 } xXIGetPropertyReply;
 #define sz_xXIGetPropertyReply               32
 
+typedef struct {
+    uint8_t     reqType;                /**< Input extension major opcode */
+    uint8_t     ReqType;                /**< Always X_XIBarrierReleasePointer */
+    uint16_t    length;
+    uint32_t    num_barriers;
+    /* array of BARRIER, BarrierEventID */
+} xXIBarrierReleasePointerReq;
+#define sz_xXIBarrierReleasePointerReq       8
+
 /*************************************************************************************
  *                                                                                   *
  *                                      EVENTS                                       *
@@ -1035,10 +1046,35 @@ typedef struct
     uint32_t    pad3;
 } xXIPropertyEvent;
 
+typedef struct
+{
+    uint8_t     type;                   /**< Always GenericEvent */
+    uint8_t     extension;              /**< XI extension offset */
+    uint16_t    sequenceNumber;         /**< Always 0 */
+    uint32_t    length;                 /**< Always 9 */
+    uint16_t    evtype;                 /**< ::XI_BarrierHitNotify or
+                                         **< ::XI_BarrierPointerReleasedNotify */
+    Window      window;
+    uint16_t    deviceid;
+    Time        time;
+    int16_t     x;
+    int16_t     y;
+    FP3232      dx;
+    FP3232      dy;
+    FP3232      raw_dx;
+    FP3232      raw_dy;
+    int16_t     dt;
+    uint16_t    event_id;
+    Barrier     barrier;
+} xXIBarrierNotifyEvent;
+
+typedef xXIBarrierNotifyEvent xXIBarrierHitNotifyEvent;
+typedef xXIBarrierNotifyEvent xXIBarrierPointerReleasedNotifyEvent;
 
 #undef Window
 #undef Time
 #undef Atom
 #undef Cursor
+#undef Barrier
 
 #endif /* _XI2PROTO_H_ */
