@@ -1050,7 +1050,7 @@ typedef struct
 {
     uint8_t     type;                   /**< Always GenericEvent */
     uint8_t     extension;              /**< XI extension offset */
-    uint16_t    sequenceNumber;         /**< Always 0 */
+    uint16_t    sequenceNumber;
     uint32_t    length;                 /**< Length in 4 byte units */
     uint16_t    evtype;                 /**< ::XI_BarrierHit or ::XI_BarrierLeave */
     uint16_t    deviceid;
