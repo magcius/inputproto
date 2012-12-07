@@ -1055,7 +1055,7 @@ typedef struct
     uint16_t    evtype;                 /**< ::XI_BarrierHit or ::XI_BarrierLeave */
     uint16_t    deviceid;
     Time        time;
-    uint16_t    event_id;
+    uint16_t    eventid;
     uint16_t    sourceid;
     Window      root;
     Window      window;
