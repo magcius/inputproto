@@ -818,11 +818,18 @@ typedef struct {
 #define sz_xXIGetPropertyReply               32
 
 typedef struct {
+    uint16_t    deviceid;
+    uint16_t    pad;
+    Barrier     barrier;
+    uint32_t    eventid;
+} xXIBarrierReleasePointerInfo;
+
+typedef struct {
     uint8_t     reqType;                /**< Input extension major opcode */
     uint8_t     ReqType;                /**< Always X_XIBarrierReleasePointer */
     uint16_t    length;
     uint32_t    num_barriers;
-    /* array of BARRIER, BarrierEventID, DeviceID */
+    /* array of xXIBarrierReleasePointerInfo */
 } xXIBarrierReleasePointerReq;
 #define sz_xXIBarrierReleasePointerReq       8
 
