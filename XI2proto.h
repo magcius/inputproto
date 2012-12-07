@@ -1051,22 +1051,24 @@ typedef struct
     uint8_t     type;                   /**< Always GenericEvent */
     uint8_t     extension;              /**< XI extension offset */
     uint16_t    sequenceNumber;         /**< Always 0 */
-    uint32_t    length;                 /**< Always 9 */
+    uint32_t    length;                 /**< Length in 4 byte units */
     uint16_t    evtype;                 /**< ::XI_BarrierHit or ::XI_BarrierLeave */
     uint16_t    deviceid;
     Time        time;
-    uint16_t    eventid;
-    uint16_t    sourceid;
+    uint32_t    eventid;
     Window      root;
-    Window      window;
-    FP1616      root_x;
+    Window      event;
+    Barrier     barrier;
 /* └──────── 32 byte boundary ────────┘ */
+    int32_t     dtime;
+    uint32_t    flags;                  /**< ::XIBarrierPointerReleased
+                                             ::XIBarrierDeviceIsGrabbed */
+    uint16_t    sourceid;
+    int16_t     pad;
+    FP1616      root_x;
     FP1616      root_y;
     FP3232      dx;
     FP3232      dy;
-    int32_t     dt;
-    uint32_t    flags;                  /**< ::XIBarrierPointerReleased */
-    Barrier     barrier;
 } xXIBarrierEvent;
 
 typedef xXIBarrierEvent xXIBarrierHitEvent;
