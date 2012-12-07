@@ -562,7 +562,10 @@ Pointer barrier events
 ^^^^^^^^^^^^^^^^^^^^^^
 If a master pointer moves against a pointer barrier blocking movement in
 that pointer's direction, the movement of the pointer is clamped to the x or
-y coordinate of the barrier, whichever applies.
+y coordinate of the barrier, whichever applies. For a description of pointer
+barriers and barrier creation and destruction see the XFixes protocol
+specification v 5.0 or later.
+http://cgit.freedesktop.org/xorg/proto/fixesproto/plain/fixesproto.txt
 
 A pointer hitting a blocking barrier creates a new barrier event sequence,
 identified by a unique event ID. A new event ID is assigned when the pointer
