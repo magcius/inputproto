@@ -1064,8 +1064,6 @@ typedef struct
     FP1616      root_y;
     FP3232      dx;
     FP3232      dy;
-    FP3232      raw_dx;
-    FP3232      raw_dy;
     int32_t     dt;
     uint32_t    flags;                  /**< ::XIBarrierPointerReleased */
     Barrier     barrier;
