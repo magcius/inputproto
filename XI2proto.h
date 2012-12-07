@@ -1060,7 +1060,7 @@ typedef struct
     Window      event;
     Barrier     barrier;
 /* └──────── 32 byte boundary ────────┘ */
-    int32_t     dtime;
+    uint32_t    dtime;
     uint32_t    flags;                  /**< ::XIBarrierPointerReleased
                                              ::XIBarrierDeviceIsGrabbed */
     uint16_t    sourceid;
