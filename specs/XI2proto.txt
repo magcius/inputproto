@@ -2620,7 +2620,8 @@ through the barrier following a XIBarrierReleasePointer request. The time
 between the XIBarrierReleasePointer and the BarrierLeave event thus depends
 on user input.
 A BarrierLeave(PointerReleased) event is also generated if the barrier is
-destroyed while pointer movement is constrained by the barrier.
+destroyed while pointer movement is constrained by the barrier. This event
+has a dx/dy of 0/0.
 
 :numbered!:
 [[xi22-usecases]]
